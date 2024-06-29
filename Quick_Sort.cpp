@@ -8,7 +8,7 @@ struct order {
   vector<int> right;
 };
 
-void quick(vector<int> &F, int size, int pivot, int i = 0) {
+void quick(vector<int> &F, int size, int pivot) {
   if (size == 0) {
     return;
   }
@@ -23,12 +23,11 @@ void quick(vector<int> &F, int size, int pivot, int i = 0) {
   }
 
   if (!idk->left.empty()) {
-    quick(idk->left, idk->left.size(), idk->left[idk->left.size() - 1], i++);
+    quick(idk->left, idk->left.size(), idk->left[idk->left.size() - 1]);
   }
   cout << pivot << " ";
   if (!idk->right.empty()) {
-    quick(idk->right, idk->right.size(), idk->right[idk->right.size() - 1],
-          i++);
+    quick(idk->right, idk->right.size(), idk->right[idk->right.size() - 1]);
   }
 }
 // MAIN
