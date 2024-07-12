@@ -41,7 +41,7 @@ int main() {
 		cout << sortedData[i] << " ";
 	}
 	// displays time taken
-	cout << endl << "Time Taken: " << duration1.count() << " sec" << "\n\n";
+	cout << endl << "Time taken: " << duration1.count() << " sec" << "\n\n";
 
 	// Reverse-Sorted Data
 	vector<int> revSortedData = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
@@ -62,7 +62,7 @@ int main() {
 		cout << revSortedData[i] << " ";
 	}
 	// displays time taken
-	cout << endl << "Time Taken: " << duration2.count() << " sec" << "\n\n";
+	cout << endl << "Time taken: " << duration2.count() << " sec" << "\n\n";
 
 	// Random Data
 	vector<int> randomData = { 12, 45, 23, 56, 34, 89, 77, 19, 4 };
@@ -83,7 +83,7 @@ int main() {
 		cout << randomData[i] << " ";
 	}
 	// displays time taken
-	cout << endl << "Time Taken: " << duration2.count() << " sec" << endl;
+	cout << endl << "Time taken: " << duration2.count() << " sec" << endl;
 
 	return 0;
 }
