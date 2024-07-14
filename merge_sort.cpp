@@ -7,7 +7,7 @@ using namespace std;
 void merge(vector<int>& array, vector<int>& array1, vector<int>& array2) {
     int i = 0, j = 0, k = 0;
 
-    // Merge array1 and array2 into a sorted newArray
+    // Merge array1 and array2 into a sorted array
     while (i < array1.size() && j < array2.size()) {
         if (array1[i] <= array2[j]) {
             array[k++] = array1[i++];
@@ -17,7 +17,7 @@ void merge(vector<int>& array, vector<int>& array1, vector<int>& array2) {
         }
     }
 
-    // Add remaining items of array1 and array2 to newArray
+    // Add remaining items of array1 and array2 to array
     while (i < array1.size()) {
         array[k++] = array1[i++];
     }
