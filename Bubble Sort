@@ -1,90 +1,90 @@
 #include <iostream>
 #include <vector>
 #include <time.h>
-#include <chrono>
+//#include <chrono>
 #include <iomanip>
 
 
 using namespace std;
 
 void BubbleSort(vector<int>& data) {
-	// nested for-loop, O(n^2)
-	for (int i = 0; i < data.size(); i++) {
-		// one less element each traversal
-		for (int j = 0; j < data.size() - i - 1; j++) {
-			// switch if left number is greater than right
-			if (data[j] > data[j + 1]) {
-				int temp = data[j];
-				data[j] = data[j + 1];
-				data[j + 1] = temp;
-			}
-		}
-	}
+  // nested for-loop, O(n^2)
+  for (int i = 0; i < data.size(); i++) {
+    // one less element each traversal
+    for (int j = 0; j < data.size() - i - 1; j++) {
+      // switch if left number is greater than right
+      if (data[j] > data[j + 1]) {
+        int temp = data[j];
+        data[j] = data[j + 1];
+        data[j + 1] = temp;
+      }
+    }
+  }
 }
 
 int main() {
-	// Sorted Data
-	vector<int> sortedData = { 1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-	// displays initial data
-	cout << "Sorted Data" << endl << "Unsorted: ";
-	for (int i = 0; i < sortedData.size(); i++) {
-		cout << sortedData[i] << " ";
-	}
+  // Sorted Data
+  vector<int> sortedData = { 1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+  // displays initial data
+  cout << "Sorted Data" << endl << "Unsorted: ";
+  for (int i = 0; i < sortedData.size(); i++) {
+    cout << sortedData[i] << " ";
+  }
 
-	auto tStart = chrono::high_resolution_clock::now();      // start time
-	BubbleSort(sortedData);
-	auto tEnd = chrono::high_resolution_clock::now();        // time stopped
-	chrono::duration<double> duration1 = tEnd - tStart;
+  clock_t start1 =clock();      // start time
+  BubbleSort(sortedData);
+  clock_t end1=clock();        // time stopped
+  cout << endl<< "Execution time for sorted: "<< double(end1 - start1) / CLOCKS_PER_SEC << " secs" << endl<< endl;
 
-	// displays sorted data
-	cout << endl << "Sorted:   ";
-	for (int i = 0; i < sortedData.size(); i++) {
-		cout << sortedData[i] << " ";
-	}
-	// displays time taken
-	cout << endl << "Time taken: " << duration1.count() << " sec" << "\n\n";
+  // displays sorted data
+  cout << endl << "Sorted:   ";
+  for (int i = 0; i < sortedData.size(); i++) {
+    cout << sortedData[i] << " ";
+  }
+  // displays time taken
+  //cout << endl << "Time taken: " << duration1.count() << " sec" << "\n\n";
 
-	// Reverse-Sorted Data
-	vector<int> revSortedData = { 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9,  8,  7,  6,  5,  4,  3,  2,  1 };
-	// displays initial data
-	cout << "Reverse-Sorted Data" << endl << "Unsorted: ";
-	for (int i = 0; i < revSortedData.size(); i++) {
-		cout << revSortedData[i] << " ";
-	}
+  // Reverse-Sorted Data
+  vector<int> revSortedData = { 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9,  8,  7,  6,  5,  4,  3,  2,  1 };
+  // displays initial data
+  cout << "Reverse-Sorted Data" << endl << "Unsorted: ";
+  for (int i = 0; i < revSortedData.size(); i++) {
+    cout << revSortedData[i] << " ";
+  }
 
-	tStart = chrono::high_resolution_clock::now();        // start time
-	BubbleSort(revSortedData);
-	tEnd = chrono::high_resolution_clock::now();          // time stopped
-	chrono::duration<double> duration2 = tEnd - tStart;
+  clock_t start2=clock();        // start time
+  BubbleSort(revSortedData);
+  clock_t end2=clock();         // time stopped
+  cout << endl<< "Execution time for reverse sorted: "<< double(end2 - start2) / CLOCKS_PER_SEC << " secs" << endl<< endl;
 
-	// displays sorted data
-	cout << endl << "Sorted:   ";
-	for (int i = 0; i < revSortedData.size(); i++) {
-		cout << revSortedData[i] << " ";
-	}
-	// displays time taken
-	cout << endl << "Time taken: " << duration2.count() << " sec" << "\n\n";
+  // displays sorted data
+  cout << endl << "Sorted:   ";
+  for (int i = 0; i < revSortedData.size(); i++) {
+    cout << revSortedData[i] << " ";
+  }
+  // displays time taken
+  //cout << endl << "Time taken: " << duration2.count() << " sec" << "\n\n";
 
-	// Random Data
-	vector<int> randomData = { 12, 45,  23, 56, 34, 89, 77, 19, 4,  91, 85, 100, 72, 64, 50, 93, 80, 17, 44, 57 };
-	// displays initial data
-	cout << "Random Data" << endl << "Unsorted: ";
-	for (int i = 0; i < randomData.size(); i++) {
-		cout << randomData[i] << " ";
-	}
+  // Random Data
+  vector<int> randomData = { 12, 45,  23, 56, 34, 89, 77, 19, 4,  91, 85, 100, 72, 64, 50, 93, 80, 17, 44, 57 };
+  // displays initial data
+  cout << "Random Data" << endl << "Unsorted: ";
+  for (int i = 0; i < randomData.size(); i++) {
+    cout << randomData[i] << " ";
+  }
 
-	tStart = chrono::high_resolution_clock::now();         // start time
-	BubbleSort(randomData);
-	tEnd = chrono::high_resolution_clock::now();           // time stopped
-	chrono::duration<double> duration3 = tEnd - tStart;
+  clock_t start3=clock();         // start time
+  BubbleSort(randomData);
+  clock_t end3=clock();          // time stopped
+  cout << endl<< "Execution time for sorted: "<< double(end3 - start3) / CLOCKS_PER_SEC << " secs" << endl<< endl;
 
-	// displays sorted data
-	cout << endl << "Sorted:   ";
-	for (int i = 0; i < randomData.size(); i++) {
-		cout << randomData[i] << " ";
-	}
-	// displays time taken
-	cout << endl << "Time taken: " << duration2.count() << " sec" << endl;
+  // displays sorted data
+  cout << endl << "Sorted:   ";
+  for (int i = 0; i < randomData.size(); i++) {
+    cout << randomData[i] << " ";
+  }
+  // displays time taken
+  //cout << endl << "Time taken: " << duration2.count() << " sec" << endl;
 
-	return 0;
+  return 0;
 }
